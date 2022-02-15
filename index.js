@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { DisTube } = require('distube')
 const Discord = require('discord.js')
 const client = new Discord.Client({
@@ -45,6 +46,7 @@ fs.readdir('./commands/', (err, files) => {
 })
 
 client.on('ready', () => {
+    client.user.setActivity('SOME BANGERS !', { type: 'PLAYING' });
     console.log(`${client.user.tag} is ready to play music.`)
 })
 
