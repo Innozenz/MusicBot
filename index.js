@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { DisTube } = require('distube')
+const {DisTube} = require('distube')
 const Discord = require('discord.js')
 const client = new Discord.Client({
     intents: [
@@ -10,9 +10,9 @@ const client = new Discord.Client({
 })
 const fs = require('fs')
 const config = require('./info.json')
-const { SpotifyPlugin } = require('@distube/spotify')
-const { SoundCloudPlugin } = require('@distube/soundcloud')
-const { YtDlpPlugin } = require('@distube/yt-dlp')
+const {SpotifyPlugin} = require('@distube/spotify')
+const {SoundCloudPlugin} = require('@distube/soundcloud')
+const {YtDlpPlugin} = require('@distube/yt-dlp')
 
 client.config = require('./info.json')
 client.distube = new DisTube(client, {
@@ -46,7 +46,7 @@ fs.readdir('./commands/', (err, files) => {
 })
 
 client.on('ready', () => {
-    client.user.setActivity('SOME BANGERS !', { type: 'PLAYING' });
+    client.user.setActivity('SKRRRRT !', {type: 'PLAYING'});
     console.log(`${client.user.tag} is ready to play music.`)
 })
 
@@ -102,6 +102,17 @@ client.distube
         message.channel.send(`${client.emotes.error} | No result found for \`${query}\`!`)
     )
     .on('finish', queue => queue.textChannel.send('Finished!'))
+
+    // const url = "https://api.twitter.com/2/users/1233148333666885633/tweets";
+    //
+    // fetch(url).then((r) => {
+    //     r.json().then((data) => {
+    //         let results = data.results
+    //         client.on('messageCreate', async message => {
+    //                 message.channel.send(`${results}`);
+    //         })
+    //     })
+    // })
 
 
 client.login(process.env.TOKEN);
